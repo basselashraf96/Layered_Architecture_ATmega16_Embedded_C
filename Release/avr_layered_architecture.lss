@@ -3,7 +3,7 @@ avr_layered_architecture.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         00000386  00000000  00000000  00000054  2**1
+  0 .text         0000039c  00000000  00000000  00000054  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
 
 Disassembly of section .text:
@@ -38,8 +38,8 @@ Disassembly of section .text:
   5a:	d4 e0       	ldi	r29, 0x04	; 4
   5c:	de bf       	out	0x3e, r29	; 62
   5e:	cd bf       	out	0x3d, r28	; 61
-  60:	0e 94 be 01 	call	0x37c	; 0x37c <main>
-  64:	0c 94 c1 01 	jmp	0x382	; 0x382 <_exit>
+  60:	0e 94 c9 01 	call	0x392	; 0x392 <main>
+  64:	0c 94 cc 01 	jmp	0x398	; 0x398 <_exit>
 
 00000068 <__bad_interrupt>:
   68:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -446,13 +446,23 @@ Disassembly of section .text:
  378:	61 bb       	out	0x11, r22	; 17
  37a:	08 95       	ret
 
-0000037c <main>:
- 37c:	d0 9a       	sbi	0x1a, 0	; 26
- 37e:	d8 98       	cbi	0x1b, 0	; 27
- 380:	fe cf       	rjmp	.-4      	; 0x37e <main+0x2>
+0000037c <dio_app>:
+ 37c:	80 e0       	ldi	r24, 0x00	; 0
+ 37e:	61 e0       	ldi	r22, 0x01	; 1
+ 380:	0e 94 36 00 	call	0x6c	; 0x6c <set_pin_dir>
+ 384:	80 e0       	ldi	r24, 0x00	; 0
+ 386:	60 e0       	ldi	r22, 0x00	; 0
+ 388:	0e 94 f8 00 	call	0x1f0	; 0x1f0 <set_pin_state>
+ 38c:	80 e0       	ldi	r24, 0x00	; 0
+ 38e:	61 e0       	ldi	r22, 0x01	; 1
+ 390:	fb cf       	rjmp	.-10     	; 0x388 <dio_app+0xc>
 
-00000382 <_exit>:
- 382:	f8 94       	cli
+00000392 <main>:
+ 392:	0e 94 be 01 	call	0x37c	; 0x37c <dio_app>
+ 396:	fd cf       	rjmp	.-6      	; 0x392 <main>
 
-00000384 <__stop_program>:
- 384:	ff cf       	rjmp	.-2      	; 0x384 <__stop_program>
+00000398 <_exit>:
+ 398:	f8 94       	cli
+
+0000039a <__stop_program>:
+ 39a:	ff cf       	rjmp	.-2      	; 0x39a <__stop_program>

@@ -6,17 +6,18 @@
  */
 
 
-#include "MCAL/DIO/DIO_REG.h"
 
+extern int dio_app(void);
 
 int main(void)
 {
-	DDRA |= (1<<0);
-	PORTA &= ~(1<<0);
 	while(1)
 	{
-		PORTA &= ~(1<<0);
+		dio_app();
 	}
+
+
+
 
 	return 0;
 }
