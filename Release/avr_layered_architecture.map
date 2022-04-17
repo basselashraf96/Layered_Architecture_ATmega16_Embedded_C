@@ -113,7 +113,7 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x346
+.text           0x00000000      0x386
  *(.vectors)
  .vectors       0x00000000       0x54 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm16.o
                 0x00000000                __vectors
@@ -201,19 +201,19 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                 0x000002ec       0x4c ./MCAL/DIO/DIO.o
                 0x000002ec                read_pin
  .text.set_port_dir
-                0x00000338        0x2 ./MCAL/DIO/DIO.o
+                0x00000338       0x22 ./MCAL/DIO/DIO.o
                 0x00000338                set_port_dir
  .text.set_port_state
-                0x0000033a        0x2 ./MCAL/DIO/DIO.o
-                0x0000033a                set_port_state
- .text.main     0x0000033c        0x6 ./main.o
-                0x0000033c                main
- .text.libgcc   0x00000342        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x00000342                . = ALIGN (0x2)
+                0x0000035a       0x22 ./MCAL/DIO/DIO.o
+                0x0000035a                set_port_state
+ .text.main     0x0000037c        0x6 ./main.o
+                0x0000037c                main
+ .text.libgcc   0x00000382        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x00000382                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000342        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x00000342                exit
-                0x00000342                _exit
+ .fini9         0x00000382        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x00000382                exit
+                0x00000382                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -232,11 +232,11 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000342        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x00000382        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000346                _etext = .
+                0x00000386                _etext = .
 
-.data           0x00800060        0x0 load address 0x00000346
+.data           0x00800060        0x0 load address 0x00000386
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm16.o
@@ -261,8 +261,8 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(.bss*)
  *(COMMON)
                 0x00800060                PROVIDE (__bss_end, .)
-                0x00000346                __data_load_start = LOADADDR (.data)
-                0x00000346                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00000386                __data_load_start = LOADADDR (.data)
+                0x00000386                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800060        0x0
                 0x00800060                PROVIDE (__noinit_start, .)

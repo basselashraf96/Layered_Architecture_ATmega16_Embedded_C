@@ -3,7 +3,7 @@ avr_layered_architecture.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         00000346  00000000  00000000  00000054  2**1
+  0 .text         00000386  00000000  00000000  00000054  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
 
 Disassembly of section .text:
@@ -38,8 +38,8 @@ Disassembly of section .text:
   5a:	d4 e0       	ldi	r29, 0x04	; 4
   5c:	de bf       	out	0x3e, r29	; 62
   5e:	cd bf       	out	0x3d, r28	; 61
-  60:	0e 94 9e 01 	call	0x33c	; 0x33c <main>
-  64:	0c 94 a1 01 	jmp	0x342	; 0x342 <_exit>
+  60:	0e 94 be 01 	call	0x37c	; 0x37c <main>
+  64:	0c 94 c1 01 	jmp	0x382	; 0x382 <_exit>
 
 00000068 <__bad_interrupt>:
   68:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -409,18 +409,50 @@ Disassembly of section .text:
  336:	08 95       	ret
 
 00000338 <set_port_dir>:
- 338:	08 95       	ret
+ 338:	81 30       	cpi	r24, 0x01	; 1
+ 33a:	49 f0       	breq	.+18     	; 0x34e <set_port_dir+0x16>
+ 33c:	81 30       	cpi	r24, 0x01	; 1
+ 33e:	28 f0       	brcs	.+10     	; 0x34a <set_port_dir+0x12>
+ 340:	82 30       	cpi	r24, 0x02	; 2
+ 342:	39 f0       	breq	.+14     	; 0x352 <set_port_dir+0x1a>
+ 344:	83 30       	cpi	r24, 0x03	; 3
+ 346:	41 f4       	brne	.+16     	; 0x358 <set_port_dir+0x20>
+ 348:	06 c0       	rjmp	.+12     	; 0x356 <set_port_dir+0x1e>
+ 34a:	6a bb       	out	0x1a, r22	; 26
+ 34c:	08 95       	ret
+ 34e:	67 bb       	out	0x17, r22	; 23
+ 350:	08 95       	ret
+ 352:	64 bb       	out	0x14, r22	; 20
+ 354:	08 95       	ret
+ 356:	62 bb       	out	0x12, r22	; 18
+ 358:	08 95       	ret
 
-0000033a <set_port_state>:
- 33a:	08 95       	ret
+0000035a <set_port_state>:
+ 35a:	81 30       	cpi	r24, 0x01	; 1
+ 35c:	49 f0       	breq	.+18     	; 0x370 <set_port_state+0x16>
+ 35e:	81 30       	cpi	r24, 0x01	; 1
+ 360:	28 f0       	brcs	.+10     	; 0x36c <set_port_state+0x12>
+ 362:	82 30       	cpi	r24, 0x02	; 2
+ 364:	39 f0       	breq	.+14     	; 0x374 <set_port_state+0x1a>
+ 366:	83 30       	cpi	r24, 0x03	; 3
+ 368:	41 f4       	brne	.+16     	; 0x37a <set_port_state+0x20>
+ 36a:	06 c0       	rjmp	.+12     	; 0x378 <set_port_state+0x1e>
+ 36c:	6b bb       	out	0x1b, r22	; 27
+ 36e:	08 95       	ret
+ 370:	68 bb       	out	0x18, r22	; 24
+ 372:	08 95       	ret
+ 374:	65 bb       	out	0x15, r22	; 21
+ 376:	08 95       	ret
+ 378:	61 bb       	out	0x11, r22	; 17
+ 37a:	08 95       	ret
 
-0000033c <main>:
- 33c:	d0 9a       	sbi	0x1a, 0	; 26
- 33e:	d8 98       	cbi	0x1b, 0	; 27
- 340:	fe cf       	rjmp	.-4      	; 0x33e <main+0x2>
+0000037c <main>:
+ 37c:	d0 9a       	sbi	0x1a, 0	; 26
+ 37e:	d8 98       	cbi	0x1b, 0	; 27
+ 380:	fe cf       	rjmp	.-4      	; 0x37e <main+0x2>
 
-00000342 <_exit>:
- 342:	f8 94       	cli
+00000382 <_exit>:
+ 382:	f8 94       	cli
 
-00000344 <__stop_program>:
- 344:	ff cf       	rjmp	.-2      	; 0x344 <__stop_program>
+00000384 <__stop_program>:
+ 384:	ff cf       	rjmp	.-2      	; 0x384 <__stop_program>

@@ -166,13 +166,45 @@ dio_pin_state_t read_pin(dio_pins_t pin)
 	return bit_state;
 }
 
-void set_port_dir(dio_port_t port , uint8 dir)
+void set_port_dir(dio_port_t port , uint8 direction)
 {
-
+	switch(port)
+	{
+	case dio_porta:
+		DDRA = direction;
+		break;
+	case dio_portb:
+		DDRB = direction;
+		break;
+	case dio_portc:
+		DDRC = direction;
+		break;
+	case dio_portd:
+		DDRD = direction;
+		break;
+	default:
+		break;
+	}
 }
 
 void set_port_state(dio_port_t port , uint8 state)
 
 {
-
+	switch(port)
+		{
+		case dio_porta:
+			PORTA = state;
+			break;
+		case dio_portb:
+			PORTB = state;
+			break;
+		case dio_portc:
+			PORTC = state;
+			break;
+		case dio_portd:
+			PORTD = state;
+			break;
+		default:
+			break;
+		}
 }

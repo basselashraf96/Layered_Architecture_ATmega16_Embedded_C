@@ -76,7 +76,7 @@ typedef enum
 void set_pin_dir(dio_pins_t pin , dio_pin_dir_t direction);
 void set_pin_state(dio_pins_t pin , dio_pin_state_t state);
 dio_pin_state_t read_pin(dio_pins_t pin);
-void set_port_dir(dio_port_t port , uint8 dir);
+void set_port_dir(dio_port_t port , uint8 direction);
 void set_port_state(dio_port_t port , uint8 state);
 
 
