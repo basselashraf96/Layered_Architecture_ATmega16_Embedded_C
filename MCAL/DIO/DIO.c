@@ -13,8 +13,8 @@
 
 void set_pin_dir(dio_pins_t pin , dio_pin_dir_t direction)
 {
-	uint8 pinNum = pin%PORT_SIZE;
-	dio_port_t port = pin/PORT_SIZE;
+	uint8 pinNum = pin%PORT_SIZE; 		    //check dio.h for explanation.
+	dio_port_t port = pin/PORT_SIZE;		//check dio.h for explanation.
 	switch(port)
 	{
 	case dio_porta:
