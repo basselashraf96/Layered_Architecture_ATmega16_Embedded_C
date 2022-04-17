@@ -8,11 +8,12 @@
 
 
 extern int dio_app(void);
+void control_led(void);
 
 int main(void)
 {
 
-	dio_app();
+	control_led();
 
 	return 0;
 }

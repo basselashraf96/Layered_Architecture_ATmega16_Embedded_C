@@ -18,7 +18,8 @@ Linker script and memory map
 
 LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm16.o
 LOAD ./MCAL/DIO/DIO.o
-LOAD ./APP/DIO_TEST/dio_test.o
+LOAD ./APP/LED_BLINK/dio_test.o
+LOAD ./APP/BUTTON_LED_CONTROL/button_led_control.o
 LOAD ./main.o
 LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a
@@ -114,7 +115,7 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x3d0
+.text           0x00000000      0x420
  *(.vectors)
  .vectors       0x00000000       0x54 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm16.o
                 0x00000000                __vectors
@@ -188,7 +189,8 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                 0x00000068                __vector_18
                 0x00000068                __vector_20
  .text          0x0000006c        0x0 ./MCAL/DIO/DIO.o
- .text          0x0000006c        0x0 ./APP/DIO_TEST/dio_test.o
+ .text          0x0000006c        0x0 ./APP/LED_BLINK/dio_test.o
+ .text          0x0000006c        0x0 ./APP/BUTTON_LED_CONTROL/button_led_control.o
  .text          0x0000006c        0x0 ./main.o
  .text          0x0000006c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
                 0x0000006c                . = ALIGN (0x2)
@@ -208,16 +210,19 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  .text.set_port_state
                 0x0000035a       0x22 ./MCAL/DIO/DIO.o
                 0x0000035a                set_port_state
- .text.dio_app  0x0000037c       0x46 ./APP/DIO_TEST/dio_test.o
+ .text.dio_app  0x0000037c       0x46 ./APP/LED_BLINK/dio_test.o
                 0x0000037c                dio_app
- .text.main     0x000003c2        0xa ./main.o
-                0x000003c2                main
- .text.libgcc   0x000003cc        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x000003cc                . = ALIGN (0x2)
+ .text.control_led
+                0x000003c2       0x50 ./APP/BUTTON_LED_CONTROL/button_led_control.o
+                0x000003c2                control_led
+ .text.main     0x00000412        0xa ./main.o
+                0x00000412                main
+ .text.libgcc   0x0000041c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x0000041c                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x000003cc        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x000003cc                exit
-                0x000003cc                _exit
+ .fini9         0x0000041c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x0000041c                exit
+                0x0000041c                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -236,16 +241,17 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x000003cc        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x0000041c        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x000003d0                _etext = .
+                0x00000420                _etext = .
 
-.data           0x00800060        0x0 load address 0x000003d0
+.data           0x00800060        0x0 load address 0x00000420
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm16.o
  .data          0x00800060        0x0 ./MCAL/DIO/DIO.o
- .data          0x00800060        0x0 ./APP/DIO_TEST/dio_test.o
+ .data          0x00800060        0x0 ./APP/LED_BLINK/dio_test.o
+ .data          0x00800060        0x0 ./APP/BUTTON_LED_CONTROL/button_led_control.o
  .data          0x00800060        0x0 ./main.o
  .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.data*)
@@ -261,14 +267,15 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(.bss)
  .bss           0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm16.o
  .bss           0x00800060        0x0 ./MCAL/DIO/DIO.o
- .bss           0x00800060        0x0 ./APP/DIO_TEST/dio_test.o
+ .bss           0x00800060        0x0 ./APP/LED_BLINK/dio_test.o
+ .bss           0x00800060        0x0 ./APP/BUTTON_LED_CONTROL/button_led_control.o
  .bss           0x00800060        0x0 ./main.o
  .bss           0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.bss*)
  *(COMMON)
                 0x00800060                PROVIDE (__bss_end, .)
-                0x000003d0                __data_load_start = LOADADDR (.data)
-                0x000003d0                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00000420                __data_load_start = LOADADDR (.data)
+                0x00000420                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800060        0x0
                 0x00800060                PROVIDE (__noinit_start, .)

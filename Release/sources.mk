@@ -21,7 +21,8 @@ C_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
-APP/DIO_TEST \
+APP/BUTTON_LED_CONTROL \
+APP/LED_BLINK \
 MCAL/DIO \
 . \
 
