@@ -11,13 +11,8 @@ extern int dio_app(void);
 
 int main(void)
 {
-	while(1)
-	{
-		dio_app();
-	}
 
-
-
+	dio_app();
 
 	return 0;
 }

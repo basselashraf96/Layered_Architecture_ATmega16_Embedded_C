@@ -3,7 +3,7 @@ avr_layered_architecture.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         0000039c  00000000  00000000  00000054  2**1
+  0 .text         000003d0  00000000  00000000  00000054  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
 
 Disassembly of section .text:
@@ -38,8 +38,8 @@ Disassembly of section .text:
   5a:	d4 e0       	ldi	r29, 0x04	; 4
   5c:	de bf       	out	0x3e, r29	; 62
   5e:	cd bf       	out	0x3d, r28	; 61
-  60:	0e 94 c9 01 	call	0x392	; 0x392 <main>
-  64:	0c 94 cc 01 	jmp	0x398	; 0x398 <_exit>
+  60:	0e 94 e1 01 	call	0x3c2	; 0x3c2 <main>
+  64:	0c 94 e6 01 	jmp	0x3cc	; 0x3cc <_exit>
 
 00000068 <__bad_interrupt>:
   68:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -447,22 +447,46 @@ Disassembly of section .text:
  37a:	08 95       	ret
 
 0000037c <dio_app>:
- 37c:	80 e0       	ldi	r24, 0x00	; 0
- 37e:	61 e0       	ldi	r22, 0x01	; 1
- 380:	0e 94 36 00 	call	0x6c	; 0x6c <set_pin_dir>
- 384:	80 e0       	ldi	r24, 0x00	; 0
- 386:	60 e0       	ldi	r22, 0x00	; 0
- 388:	0e 94 f8 00 	call	0x1f0	; 0x1f0 <set_pin_state>
- 38c:	80 e0       	ldi	r24, 0x00	; 0
- 38e:	61 e0       	ldi	r22, 0x01	; 1
- 390:	fb cf       	rjmp	.-10     	; 0x388 <dio_app+0xc>
+ 37c:	cf 93       	push	r28
+ 37e:	df 93       	push	r29
+ 380:	80 e0       	ldi	r24, 0x00	; 0
+ 382:	61 e0       	ldi	r22, 0x01	; 1
+ 384:	0e 94 36 00 	call	0x6c	; 0x6c <set_pin_dir>
+ 388:	80 e0       	ldi	r24, 0x00	; 0
+ 38a:	60 e0       	ldi	r22, 0x00	; 0
+ 38c:	0e 94 f8 00 	call	0x1f0	; 0x1f0 <set_pin_state>
+ 390:	c9 e1       	ldi	r28, 0x19	; 25
+ 392:	d0 e0       	ldi	r29, 0x00	; 0
+ 394:	80 e0       	ldi	r24, 0x00	; 0
+ 396:	61 e0       	ldi	r22, 0x01	; 1
+ 398:	0e 94 f8 00 	call	0x1f0	; 0x1f0 <set_pin_state>
+ 39c:	88 e8       	ldi	r24, 0x88	; 136
+ 39e:	93 e1       	ldi	r25, 0x13	; 19
+ 3a0:	fe 01       	movw	r30, r28
+ 3a2:	31 97       	sbiw	r30, 0x01	; 1
+ 3a4:	f1 f7       	brne	.-4      	; 0x3a2 <dio_app+0x26>
+ 3a6:	01 97       	sbiw	r24, 0x01	; 1
+ 3a8:	d9 f7       	brne	.-10     	; 0x3a0 <dio_app+0x24>
+ 3aa:	80 e0       	ldi	r24, 0x00	; 0
+ 3ac:	60 e0       	ldi	r22, 0x00	; 0
+ 3ae:	0e 94 f8 00 	call	0x1f0	; 0x1f0 <set_pin_state>
+ 3b2:	88 e8       	ldi	r24, 0x88	; 136
+ 3b4:	93 e1       	ldi	r25, 0x13	; 19
+ 3b6:	fe 01       	movw	r30, r28
+ 3b8:	31 97       	sbiw	r30, 0x01	; 1
+ 3ba:	f1 f7       	brne	.-4      	; 0x3b8 <dio_app+0x3c>
+ 3bc:	01 97       	sbiw	r24, 0x01	; 1
+ 3be:	d9 f7       	brne	.-10     	; 0x3b6 <dio_app+0x3a>
+ 3c0:	e9 cf       	rjmp	.-46     	; 0x394 <dio_app+0x18>
 
-00000392 <main>:
- 392:	0e 94 be 01 	call	0x37c	; 0x37c <dio_app>
- 396:	fd cf       	rjmp	.-6      	; 0x392 <main>
+000003c2 <main>:
+ 3c2:	0e 94 be 01 	call	0x37c	; 0x37c <dio_app>
+ 3c6:	80 e0       	ldi	r24, 0x00	; 0
+ 3c8:	90 e0       	ldi	r25, 0x00	; 0
+ 3ca:	08 95       	ret
 
-00000398 <_exit>:
- 398:	f8 94       	cli
+000003cc <_exit>:
+ 3cc:	f8 94       	cli
 
-0000039a <__stop_program>:
- 39a:	ff cf       	rjmp	.-2      	; 0x39a <__stop_program>
+000003ce <__stop_program>:
+ 3ce:	ff cf       	rjmp	.-2      	; 0x3ce <__stop_program>
