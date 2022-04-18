@@ -10,7 +10,7 @@
 
 #include "../../UTILS/std_types.h"
 
-
+#define SREG  (*(volatile uint8*)0x5F) /*Status Register (i-bit --> bit 7*/
 
 #define TCCR0 (*(volatile uint8*)0x53) /* Timer/Counter Control Register – TCCR0 */
 #define TCNT0 (*(volatile uint8*)0x52) /* Timer/Counter0 (8 Bits) */
@@ -27,6 +27,12 @@
 #define COM01 5
 #define WGM00 6
 #define FOC0  7
+
+#define TOIE0 0
+#define OCIE0 1
+
+#define TOV0  0
+#define OCF0  1
 
 
 

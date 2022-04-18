@@ -9,19 +9,27 @@
 #define MCAL_TIMER_0_TIMER0_H_
 
 #include "../../UTILS/std_types.h"
+#include <avr/interrupt.h>
 
 
 
 /*************************************************************************************
  	 	 	 	 	 *			MACROS			*
-/*************************************************************************************/
-//#define PWM_ACTIVE 				/* uncomment if you choose pwm mode */
-//#define INTERRUPT_ACTIVE 			/* uncomment if you want to enable interrupt */
+***********************************************************************************/
+//#define PWM_ACTIVE 				/* uncomment PWM_ACTIVE to activate pwm mode */
+#define INTERRUPT_ACTIVE 			/* uncomment INTERRUPT_ACTIVE to activate interrupt */
+//#define OVF_ACTIVE				    /* uncomment OVF_ACTIVE	to activate overflow and deactivate compare mode */
+
+#define CTC_ACTIVE
+
+#ifdef OVF_ACTIVE
+#undef CTC_ACTIVE
+#endif
 
 
 /*************************************************************************************
   	  	  	  	  *			Types Declaration			*
-/*************************************************************************************/
+************************************************************************************/
 typedef enum
 {
 	NORMAL , PWM , CTC , FAST_PWM,
@@ -41,7 +49,7 @@ typedef enum
 
 typedef enum
 {
-	NO_CLK , F_CPU_8 , F_CPU_64 , F_CPU_256 , F_CPU_1024 , EXTERNAL_CLK_FALLING , EXTERNAL_CLK_RISING,
+	NO_CLK ,FCPU, F_CPU_8 , F_CPU_64 , F_CPU_256 , F_CPU_1024 , EXTERNAL_CLK_FALLING , EXTERNAL_CLK_RISING,
 }clk_select_t;
 
 #ifdef INTERRUPT_ACTIVE
@@ -56,19 +64,16 @@ typedef struct
 	waveFormMode_t waveFormMode;
 	compareOutputMode_t compareOutputMode;
 	clk_select_t clk_select;
-
-#ifdef INTERRUPT_ACTIVE
-	interruptType_t interruptType;
-#endif
 }timer0_config_t;
 
 
 /*************************************************************************************
   	  	  	  	  	  *			Function Prototypes			*
-/*************************************************************************************/
+*************************************************************************************/
 void timer0_init(const timer0_config_t* configPtr);
-void timer0_start(void);
+void timer0_start(const timer0_config_t* configPtr , uint8 startVal , uint8 compareVal);
 void timer0_stop(void);
+void timer0_setCallBack(void(*a_ptr)(void));
 
 
 
