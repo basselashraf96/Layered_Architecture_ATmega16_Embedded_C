@@ -53,7 +53,7 @@ typedef enum
 
 typedef struct
 {
-	waveFormMode_t waveFormMOde;
+	waveFormMode_t waveFormMode;
 	compareOutputMode_t compareOutputMode;
 	clk_select_t clk_select;
 
@@ -66,6 +66,9 @@ typedef struct
 /*************************************************************************************
   	  	  	  	  	  *			Function Prototypes			*
 /*************************************************************************************/
+void timer0_init(const timer0_config_t* configPtr);
+void timer0_start(void);
+void timer0_stop(void);
 
 
 
