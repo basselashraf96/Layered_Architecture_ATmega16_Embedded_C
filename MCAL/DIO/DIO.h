@@ -10,6 +10,10 @@
 
 #include "../../UTILS/std_types.h"
 
+
+/*************************************************************************************
+  	  	  	  	  *			Types Declaration			*
+/*************************************************************************************/
 typedef enum	//accomplished by this equation (pinNum = dio_pins_t % portSize) (pinNum is from 0 --> 7 always)
 {
 	dio_pin_ra0,
@@ -72,7 +76,9 @@ typedef enum
 	high,
 }dio_pin_state_t;
 
-
+/*************************************************************************************
+  	  	  	  	  	  *			Function Prototypes			*
+/*************************************************************************************/
 void set_pin_dir(dio_pins_t pin , dio_pin_dir_t direction);
 void set_pin_state(dio_pins_t pin , dio_pin_state_t state);
 dio_pin_state_t read_pin(dio_pins_t pin);

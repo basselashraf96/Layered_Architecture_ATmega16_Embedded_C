@@ -20,7 +20,7 @@ void control_led(void)
 	{
 		while(read_pin(dio_pin_rb0) == high)
 		{
-			_delay_ms(2);
+			_delay_ms(2); //debouncing
 			while(read_pin(dio_pin_rb0) == high)
 			{
 				set_pin_state(dio_pin_ra0 , high);
