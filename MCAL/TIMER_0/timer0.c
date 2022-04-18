@@ -8,6 +8,7 @@
 #include "timer0.h"
 #include "timer0_reg.h"
 #include "../../UTILS/common_macros.h"
+#include "../DIO/DIO.h"
 
 /**************************************************
  * 				Global Variables                  *
@@ -51,7 +52,10 @@ void timer0_init(const timer0_config_t* configPtr)
 
 #ifndef PWM_ACTIVE
 	SET_BIT(TCCR0 , FOC0); 			/* Force Output Compare  Bit-->7 */
+#else
+	set_pin_dir(dio_pin_rb3 , output); //set OC0 as output pin --> pin where the PWM signal is generated from MC
 #endif
+
 
 
 	/*takes WGM00 and shift to bit 6 0b0000000X --> 0b0X000000    |    takes WGM01 and shift to bit 3 0b000000X0 --> 0b0000X000*/

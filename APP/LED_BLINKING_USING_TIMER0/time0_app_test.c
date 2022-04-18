@@ -31,11 +31,11 @@ int timer0_app(void)
 	set_pin_dir(dio_pin_ra0 , output);
 	set_pin_state(dio_pin_ra0 , low);
 
-	timer0_config_t config = {NORMAL , OC0_DISCONNECTED , F_CPU_1024};
+	timer0_config_t config = {FAST_PWM , OC0_CLEAR , F_CPU_8};
 	timer0_setCallBack(blinking_app);
 	timer0_init(&config);
 
-	timer0_start(&config , 0 , 255);
+	timer0_start(&config , 0 , 64);
 	while(1)
 	{
 

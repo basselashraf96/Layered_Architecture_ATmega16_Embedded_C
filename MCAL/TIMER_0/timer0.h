@@ -16,9 +16,9 @@
 /*************************************************************************************
  	 	 	 	 	 *			MACROS			*
 ***********************************************************************************/
-//#define PWM_ACTIVE 				/* uncomment PWM_ACTIVE to activate pwm mode */
-#define INTERRUPT_ACTIVE 			/* uncomment INTERRUPT_ACTIVE to activate interrupt */
-#define OVF_ACTIVE				    /* uncomment OVF_ACTIVE	to activate overflow and deactivate compare mode */
+#define PWM_ACTIVE 				/* uncomment PWM_ACTIVE to activate pwm mode */
+//#define INTERRUPT_ACTIVE 			/* uncomment INTERRUPT_ACTIVE to activate interrupt */
+//#define OVF_ACTIVE				    /* uncomment OVF_ACTIVE	to activate overflow and deactivate compare mode */
 
 #define CTC_ACTIVE
 
