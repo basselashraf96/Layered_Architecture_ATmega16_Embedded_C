@@ -31,7 +31,7 @@ int timer0_app(void)
 	set_pin_dir(dio_pin_ra0 , output);
 	set_pin_state(dio_pin_ra0 , low);
 
-	timer0_config_t config = {CTC , OC0_DISCONNECTED , F_CPU_1024};
+	timer0_config_t config = {NORMAL , OC0_DISCONNECTED , F_CPU_1024};
 	timer0_setCallBack(blinking_app);
 	timer0_init(&config);
 

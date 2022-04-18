@@ -68,11 +68,12 @@ void timer0_init(const timer0_config_t* configPtr)
 void timer0_start(const timer0_config_t* configPtr , uint8 startVal , uint8 compareVal)
 {
 	uint8 garbage =0;
-	TCNT0 = startVal;
-	garbage = compareVal;
+
 	TCCR0 = (TCCR0 & 0xF8) | (configPtr->clk_select);
 #ifdef OVF_ACTIVE
 	SET_BIT(TIMSK , TOIE0);
+	TCNT0 = startVal;
+	garbage = compareVal;
 
 
 #else
