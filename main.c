@@ -9,11 +9,12 @@
 
 //extern int dio_app(void);
 //extern void control_led(void);
-extern int timer0_app(void);
+//extern int timer0_app(void);
+extern void potentiometer_app(void);
 int main(void)
 {
 
-	timer0_app();
+	potentiometer_app();
 
 	return 0;
 }
