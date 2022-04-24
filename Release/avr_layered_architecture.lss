@@ -343,7 +343,7 @@ Disassembly of section .text:
  290:	08 95       	ret
  292:	66 23       	and	r22, r22
  294:	61 f4       	brne	.+24     	; 0x2ae <set_pin_dir+0x148>
- 296:	22 b3       	in	r18, 0x12	; 18
+ 296:	21 b3       	in	r18, 0x11	; 17
  298:	81 e0       	ldi	r24, 0x01	; 1
  29a:	90 e0       	ldi	r25, 0x00	; 0
  29c:	02 c0       	rjmp	.+4      	; 0x2a2 <set_pin_dir+0x13c>
@@ -353,11 +353,11 @@ Disassembly of section .text:
  2a4:	e2 f7       	brpl	.-8      	; 0x29e <set_pin_dir+0x138>
  2a6:	80 95       	com	r24
  2a8:	82 23       	and	r24, r18
- 2aa:	82 bb       	out	0x12, r24	; 18
+ 2aa:	81 bb       	out	0x11, r24	; 17
  2ac:	08 95       	ret
  2ae:	61 30       	cpi	r22, 0x01	; 1
  2b0:	59 f4       	brne	.+22     	; 0x2c8 <set_pin_dir+0x162>
- 2b2:	22 b3       	in	r18, 0x12	; 18
+ 2b2:	21 b3       	in	r18, 0x11	; 17
  2b4:	81 e0       	ldi	r24, 0x01	; 1
  2b6:	90 e0       	ldi	r25, 0x00	; 0
  2b8:	02 c0       	rjmp	.+4      	; 0x2be <set_pin_dir+0x158>
@@ -366,11 +366,11 @@ Disassembly of section .text:
  2be:	4a 95       	dec	r20
  2c0:	e2 f7       	brpl	.-8      	; 0x2ba <set_pin_dir+0x154>
  2c2:	28 2b       	or	r18, r24
- 2c4:	22 bb       	out	0x12, r18	; 18
+ 2c4:	21 bb       	out	0x11, r18	; 17
  2c6:	08 95       	ret
  2c8:	62 30       	cpi	r22, 0x02	; 2
  2ca:	71 f4       	brne	.+28     	; 0x2e8 <set_pin_dir+0x182>
- 2cc:	32 b3       	in	r19, 0x12	; 18
+ 2cc:	31 b3       	in	r19, 0x11	; 17
  2ce:	81 e0       	ldi	r24, 0x01	; 1
  2d0:	90 e0       	ldi	r25, 0x00	; 0
  2d2:	01 c0       	rjmp	.+2      	; 0x2d6 <set_pin_dir+0x170>
@@ -380,10 +380,10 @@ Disassembly of section .text:
  2da:	28 2f       	mov	r18, r24
  2dc:	20 95       	com	r18
  2de:	23 23       	and	r18, r19
- 2e0:	22 bb       	out	0x12, r18	; 18
- 2e2:	21 b3       	in	r18, 0x11	; 17
+ 2e0:	21 bb       	out	0x11, r18	; 17
+ 2e2:	22 b3       	in	r18, 0x12	; 18
  2e4:	82 2b       	or	r24, r18
- 2e6:	81 bb       	out	0x11, r24	; 17
+ 2e6:	82 bb       	out	0x12, r24	; 18
  2e8:	08 95       	ret
 
 000002ea <set_pin_state>:
@@ -488,7 +488,7 @@ Disassembly of section .text:
  3ae:	08 95       	ret
  3b0:	66 23       	and	r22, r22
  3b2:	61 f4       	brne	.+24     	; 0x3cc <set_pin_state+0xe2>
- 3b4:	21 b3       	in	r18, 0x11	; 17
+ 3b4:	22 b3       	in	r18, 0x12	; 18
  3b6:	81 e0       	ldi	r24, 0x01	; 1
  3b8:	90 e0       	ldi	r25, 0x00	; 0
  3ba:	02 c0       	rjmp	.+4      	; 0x3c0 <set_pin_state+0xd6>
@@ -498,11 +498,11 @@ Disassembly of section .text:
  3c2:	e2 f7       	brpl	.-8      	; 0x3bc <set_pin_state+0xd2>
  3c4:	80 95       	com	r24
  3c6:	82 23       	and	r24, r18
- 3c8:	81 bb       	out	0x11, r24	; 17
+ 3c8:	82 bb       	out	0x12, r24	; 18
  3ca:	08 95       	ret
  3cc:	61 30       	cpi	r22, 0x01	; 1
  3ce:	51 f4       	brne	.+20     	; 0x3e4 <set_pin_state+0xfa>
- 3d0:	21 b3       	in	r18, 0x11	; 17
+ 3d0:	22 b3       	in	r18, 0x12	; 18
  3d2:	81 e0       	ldi	r24, 0x01	; 1
  3d4:	90 e0       	ldi	r25, 0x00	; 0
  3d6:	02 c0       	rjmp	.+4      	; 0x3dc <set_pin_state+0xf2>
@@ -511,7 +511,7 @@ Disassembly of section .text:
  3dc:	3a 95       	dec	r19
  3de:	e2 f7       	brpl	.-8      	; 0x3d8 <set_pin_state+0xee>
  3e0:	28 2b       	or	r18, r24
- 3e2:	21 bb       	out	0x11, r18	; 17
+ 3e2:	22 bb       	out	0x12, r18	; 18
  3e4:	08 95       	ret
 
 000003e6 <read_pin>:
@@ -570,7 +570,7 @@ Disassembly of section .text:
  44a:	08 95       	ret
  44c:	64 bb       	out	0x14, r22	; 20
  44e:	08 95       	ret
- 450:	62 bb       	out	0x12, r22	; 18
+ 450:	61 bb       	out	0x11, r22	; 17
  452:	08 95       	ret
 
 00000454 <set_port_state>:
@@ -589,7 +589,7 @@ Disassembly of section .text:
  46c:	08 95       	ret
  46e:	65 bb       	out	0x15, r22	; 21
  470:	08 95       	ret
- 472:	61 bb       	out	0x11, r22	; 17
+ 472:	62 bb       	out	0x12, r22	; 18
  474:	08 95       	ret
 
 00000476 <adc_init>:
@@ -642,10 +642,10 @@ Disassembly of section .text:
  4ca:	0f 93       	push	r16
  4cc:	1f 93       	push	r17
  4ce:	f8 2e       	mov	r15, r24
- 4d0:	88 e0       	ldi	r24, 0x08	; 8
+ 4d0:	88 e1       	ldi	r24, 0x18	; 24
  4d2:	61 e0       	ldi	r22, 0x01	; 1
  4d4:	0e 94 75 01 	call	0x2ea	; 0x2ea <set_pin_state>
- 4d8:	89 e0       	ldi	r24, 0x09	; 9
+ 4d8:	89 e1       	ldi	r24, 0x19	; 25
  4da:	60 e0       	ldi	r22, 0x00	; 0
  4dc:	0e 94 75 01 	call	0x2ea	; 0x2ea <set_pin_state>
  4e0:	0a ef       	ldi	r16, 0xFA	; 250
@@ -653,7 +653,7 @@ Disassembly of section .text:
  4e4:	c8 01       	movw	r24, r16
  4e6:	01 97       	sbiw	r24, 0x01	; 1
  4e8:	f1 f7       	brne	.-4      	; 0x4e6 <LCD_displayCharacter+0x1e>
- 4ea:	8a e0       	ldi	r24, 0x0A	; 10
+ 4ea:	8a e1       	ldi	r24, 0x1A	; 26
  4ec:	61 e0       	ldi	r22, 0x01	; 1
  4ee:	0e 94 75 01 	call	0x2ea	; 0x2ea <set_pin_state>
  4f2:	c8 01       	movw	r24, r16
@@ -663,7 +663,7 @@ Disassembly of section .text:
  4fa:	c8 01       	movw	r24, r16
  4fc:	01 97       	sbiw	r24, 0x01	; 1
  4fe:	f1 f7       	brne	.-4      	; 0x4fc <LCD_displayCharacter+0x34>
- 500:	8a e0       	ldi	r24, 0x0A	; 10
+ 500:	8a e1       	ldi	r24, 0x1A	; 26
  502:	60 e0       	ldi	r22, 0x00	; 0
  504:	0e 94 75 01 	call	0x2ea	; 0x2ea <set_pin_state>
  508:	c8 01       	movw	r24, r16
@@ -733,10 +733,10 @@ Disassembly of section .text:
  582:	0f 93       	push	r16
  584:	1f 93       	push	r17
  586:	f8 2e       	mov	r15, r24
- 588:	88 e0       	ldi	r24, 0x08	; 8
+ 588:	88 e1       	ldi	r24, 0x18	; 24
  58a:	60 e0       	ldi	r22, 0x00	; 0
  58c:	0e 94 75 01 	call	0x2ea	; 0x2ea <set_pin_state>
- 590:	89 e0       	ldi	r24, 0x09	; 9
+ 590:	89 e1       	ldi	r24, 0x19	; 25
  592:	60 e0       	ldi	r22, 0x00	; 0
  594:	0e 94 75 01 	call	0x2ea	; 0x2ea <set_pin_state>
  598:	0a ef       	ldi	r16, 0xFA	; 250
@@ -744,7 +744,7 @@ Disassembly of section .text:
  59c:	c8 01       	movw	r24, r16
  59e:	01 97       	sbiw	r24, 0x01	; 1
  5a0:	f1 f7       	brne	.-4      	; 0x59e <LCD_sendCommand+0x1e>
- 5a2:	8a e0       	ldi	r24, 0x0A	; 10
+ 5a2:	8a e1       	ldi	r24, 0x1A	; 26
  5a4:	61 e0       	ldi	r22, 0x01	; 1
  5a6:	0e 94 75 01 	call	0x2ea	; 0x2ea <set_pin_state>
  5aa:	c8 01       	movw	r24, r16
@@ -754,7 +754,7 @@ Disassembly of section .text:
  5b2:	c8 01       	movw	r24, r16
  5b4:	01 97       	sbiw	r24, 0x01	; 1
  5b6:	f1 f7       	brne	.-4      	; 0x5b4 <LCD_sendCommand+0x34>
- 5b8:	8a e0       	ldi	r24, 0x0A	; 10
+ 5b8:	8a e1       	ldi	r24, 0x1A	; 26
  5ba:	60 e0       	ldi	r22, 0x00	; 0
  5bc:	0e 94 75 01 	call	0x2ea	; 0x2ea <set_pin_state>
  5c0:	c8 01       	movw	r24, r16
@@ -805,13 +805,13 @@ Disassembly of section .text:
 00000614 <LCD_init>:
  614:	8f ef       	ldi	r24, 0xFF	; 255
  616:	84 bb       	out	0x14, r24	; 20
- 618:	88 e0       	ldi	r24, 0x08	; 8
+ 618:	88 e1       	ldi	r24, 0x18	; 24
  61a:	61 e0       	ldi	r22, 0x01	; 1
  61c:	0e 94 b3 00 	call	0x166	; 0x166 <set_pin_dir>
- 620:	8a e0       	ldi	r24, 0x0A	; 10
+ 620:	8a e1       	ldi	r24, 0x1A	; 26
  622:	61 e0       	ldi	r22, 0x01	; 1
  624:	0e 94 b3 00 	call	0x166	; 0x166 <set_pin_dir>
- 628:	89 e0       	ldi	r24, 0x09	; 9
+ 628:	89 e1       	ldi	r24, 0x19	; 25
  62a:	61 e0       	ldi	r22, 0x01	; 1
  62c:	0e 94 b3 00 	call	0x166	; 0x166 <set_pin_dir>
  630:	88 e3       	ldi	r24, 0x38	; 56

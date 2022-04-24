@@ -23,9 +23,9 @@
  **************************************************/
 
 
-#define RS	dio_pin_rb0
-#define RW	dio_pin_rb1
-#define E   dio_pin_rb2
+#define RS	dio_pin_rd0
+#define RW	dio_pin_rd1
+#define E   dio_pin_rd2
 
 #define LCD_DATA_PORT_DIR DDRC
 #define LCD_DATA_PORT PORTC

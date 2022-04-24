@@ -43,7 +43,7 @@ typedef enum	//accomplished by this equation (pinNum = dio_pins_t % portSize) (p
 	dio_pin_rc6,
 	dio_pin_rc7,
 
-	dio_pin_rd0 = 32, //32%portSize = 0
+	dio_pin_rd0 = 24, //24%portSize = 0
 	dio_pin_rd1,
 	dio_pin_rd2,
 	dio_pin_rd3,

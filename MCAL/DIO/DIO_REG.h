@@ -23,8 +23,8 @@
 #define PORTC (*(volatile uint8*)0x35)
 #define PINC  (*(volatile uint8*)0x33)
 
-#define DDRD  (*(volatile uint8*)0x32)
-#define PORTD (*(volatile uint8*)0x31)
+#define DDRD  (*(volatile uint8*)0x31)
+#define PORTD (*(volatile uint8*)0x32)
 #define PIND  (*(volatile uint8*)0x30)
 
 #define PA0 0
