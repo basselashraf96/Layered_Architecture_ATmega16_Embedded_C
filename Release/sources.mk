@@ -22,9 +22,11 @@ C_DEPS :=
 # Every subdirectory with source files must be described here
 SUBDIRS := \
 APP/BUTTON_LED_CONTROL \
+APP/LCD_TEST \
 APP/LED_BLINK \
 APP/LED_BLINKING_USING_TIMER0 \
 APP/POTENTIOMETER \
+HAL/LCD \
 MCAL/ADC \
 MCAL/DIO \
 MCAL/TIMER_0 \
