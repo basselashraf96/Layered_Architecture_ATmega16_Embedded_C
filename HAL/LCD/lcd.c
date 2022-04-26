@@ -18,10 +18,48 @@ void LCD_sendCommand(uint8 command)
 	_delay_ms(1); /* wait for tas Duration minimum 50 ns */
 	set_pin_state(E , high);
 	_delay_ms(1); /* wait for (tpw - tdsw) Duration minimum 190 ns */
+
+#if (LCD_BIT_MODE == 8)
+
 	LCD_DATA_PORT = command;
 	_delay_ms(1); /* wait for (tdsw) Duration minimum 100 ns */
 	set_pin_state(E , low);
 	_delay_ms(1); /* wait for (th) Duration minimum 13 ns */
+
+#elif (LCD_BIT_MODE == 4)
+
+#ifdef UPPER_PIN /* D4 ---> D7 */
+
+	LCD_DATA_PORT = (LCD_DATA_PORT & 0x0F) | (command & 0xF0);
+
+#else
+
+	LCD_DATA_PORT = (LCD_DATA_PORT & 0xF0) | ((command & 0xF0)>>4);
+
+#endif
+
+	_delay_ms(1); /* wait for (tdsw) Duration minimum 100 ns */
+	set_pin_state(E , low);
+	_delay_ms(1); /* wait for (th) Duration minimum 13 ns */
+
+	set_pin_state(E , high);
+	_delay_ms(1); /* wait for (tpw - tdsw) Duration minimum 190 ns */
+
+#ifdef UPPER_PIN /* D4 ---> D7 */
+
+	LCD_DATA_PORT = (LCD_DATA_PORT & 0x0F) | ((command & 0x0F)<<4);
+
+#else
+
+	LCD_DATA_PORT = (LCD_DATA_PORT & 0xF0) | (command & 0x0F);
+
+#endif
+
+	_delay_ms(1); /* wait for (tdsw) Duration minimum 100 ns */
+	set_pin_state(E , low);
+	_delay_ms(1); /* wait for (th) Duration minimum 13 ns */
+
+#endif
 }
 
 void LCD_displayCharacter(uint8 data)
@@ -31,10 +69,48 @@ void LCD_displayCharacter(uint8 data)
 	_delay_ms(1); /* wait for tas Duration minimum 50 ns */
 	set_pin_state(E , high);
 	_delay_ms(1); /* wait for (tpw - tdsw) Duration minimum 190 ns */
+
+#if (LCD_BIT_MODE == 8)
+
 	LCD_DATA_PORT = data;
 	_delay_ms(1); /* wait for (tdsw) Duration minimum 100 ns */
 	set_pin_state(E , low);
 	_delay_ms(1); /* wait for (th) Duration minimum 13 ns */
+
+#elif (LCD_BIT_MODE == 4)
+
+#ifdef UPPER_PIN /* D4 ---> D7 */
+
+	LCD_DATA_PORT = (LCD_DATA_PORT & 0x0F) | (data & 0xF0);
+
+#else
+
+	LCD_DATA_PORT = (LCD_DATA_PORT & 0xF0) | ((data & 0xF0)>>4);
+
+#endif
+
+	_delay_ms(1); /* wait for (tdsw) Duration minimum 100 ns */
+	set_pin_state(E , low);
+	_delay_ms(1); /* wait for (th) Duration minimum 13 ns */
+
+	set_pin_state(E , high);
+	_delay_ms(1); /* wait for (tpw - tdsw) Duration minimum 190 ns */
+
+#ifdef UPPER_PIN /* D4 ---> D7 */
+
+	LCD_DATA_PORT = (LCD_DATA_PORT & 0x0F) | ((data & 0x0F)<<4);
+
+#else
+
+	LCD_DATA_PORT = (LCD_DATA_PORT & 0xF0) | (data & 0x0F);
+
+#endif
+
+	_delay_ms(1); /* wait for (tdsw) Duration minimum 100 ns */
+	set_pin_state(E , low);
+	_delay_ms(1); /* wait for (th) Duration minimum 13 ns */
+
+#endif
 }
 void LCD_displayString(const char *Str)
 {
@@ -50,16 +126,31 @@ void LCD_displayString(const char *Str)
 
 void LCD_init(void)
 {
-	LCD_DATA_PORT_DIR = 0xFF;
-
 	set_pin_dir(RS , output);
 	set_pin_dir(E , output);
 	set_pin_dir(RW , output);
 
+#if (LCD_BIT_MODE == 4)
+
+	LCD_sendCommand(FOUR_BITS_MODE);
+#ifdef UPPER_PIN
+
+	LCD_DATA_PORT_DIR |= 0xF0; /* Highest 4 pin as output */
+
+#else
+
+	LCD_DATA_PORT_DIR |= 0x0F; /* Lowest 4 pin as output */
+
+#endif
+
+#elif (LCD_BIT_MODE == 8)
+
+	LCD_DATA_PORT_DIR = 0xFF;
+
+#endif
 	LCD_sendCommand(TWO_LINE);
 	LCD_sendCommand(CURSOR_OFF);
 	LCD_sendCommand(CLR_LCD);
-
 }
 void LCD_clearScreen(void)
 {
@@ -90,7 +181,7 @@ void LCD_goToRowColumn(uint8 row,uint8 col)
 	default:
 		break;
 	}
-	LCD_sendCommand(address | SET_CURSOR_POS); /* 0x80 + address* */
+	LCD_sendCommand(SET_CURSOR_POS | address ); /* 0x80 + address* */
 }
 void LCD_intgerToString(int data)
 {

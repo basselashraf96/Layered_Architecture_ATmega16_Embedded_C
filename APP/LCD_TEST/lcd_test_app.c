@@ -16,7 +16,7 @@ int lcd_test_app(void)
 
 	while(1)
 	{
-		LCD_displayStringRowColumn(1,0,"AHMED");
+		LCD_displayStringRowColumn(0,0,"AHMED");
 		while(1);
 	}
 	return 0;

@@ -15,7 +15,8 @@
 /***************************************************
  * 			     MACROS					   *
  **************************************************/
-#define LCD_BIT_MODE 8
+#define LCD_BIT_MODE 4 /* either 4 or 8 bit Mode */
+#define UPPER_PIN	   /* uncomment for bit 4 to 7 */
 
 
 /***************************************************
@@ -52,9 +53,9 @@
 #define TWO_LINE 0x38
 
 #elif (LCD_BIT_MODE == 4)
-
-#define ONE_LINE 0x20
-#define TWO_LINE 0x28
+#define FOUR_BITS_MODE 0x02
+#define ONE_LINE       0x20
+#define TWO_LINE       0x28
 
 #endif
 
