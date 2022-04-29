@@ -53,6 +53,7 @@
 #define TWO_LINE 0x38
 
 #elif (LCD_BIT_MODE == 4)
+
 #define FOUR_BITS_MODE 0x02
 #define ONE_LINE       0x20
 #define TWO_LINE       0x28

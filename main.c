@@ -11,11 +11,12 @@
 //extern void control_led(void);
 //extern int timer0_app(void);
 //extern void potentiometer_app(void);
-extern int lcd_test_app(void);
+//extern int lcd_test_app(void);
+extern int keypad_lcd_app_test(void);
 int main(void)
 {
 
-	lcd_test_app();
+	keypad_lcd_app_test();
 
 	return 0;
 }

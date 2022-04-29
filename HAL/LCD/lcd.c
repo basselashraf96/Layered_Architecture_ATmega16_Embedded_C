@@ -133,6 +133,7 @@ void LCD_init(void)
 #if (LCD_BIT_MODE == 4)
 
 	LCD_sendCommand(FOUR_BITS_MODE);
+
 #ifdef UPPER_PIN
 
 	LCD_DATA_PORT_DIR |= 0xF0; /* Highest 4 pin as output */
