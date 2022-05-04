@@ -32,5 +32,6 @@ HAL/LCD \
 MCAL/ADC \
 MCAL/DIO \
 MCAL/TIMER_0 \
+MCAL/UART \
 . \
 

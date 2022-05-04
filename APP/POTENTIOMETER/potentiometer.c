@@ -16,7 +16,7 @@ extern uint16 g_adc_result;
 void potentiometer_app(void)
 {
 	set_pin_dir(dio_pin_rb0 , output);
-	adc_config_t config = {AREF , ADC_FCPU_8 , Free_Running_mode};
+	adc_config_t config = {ADC_AREF , ADC_FCPU_8 , Free_Running_mode};
 	adc_init(&config);
 
 	while(1)

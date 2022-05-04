@@ -31,7 +31,7 @@
 /* INTERNAL_VREF is Internal 2.56V Voltage Reference with external capacitor at AREF pin */
 typedef enum
 {
-	AREF, AVCC , RESERVED , INTERNAL_VREF,
+	ADC_AREF, ADC_AVCC , ADC_RESERVED , ADC_INTERNAL_VREF,
 
 }adc_reference_Selection_Bits_t;
 typedef enum

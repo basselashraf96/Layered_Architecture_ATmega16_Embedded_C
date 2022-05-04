@@ -32,7 +32,7 @@
 ************************************************************************************/
 typedef enum
 {
-	NORMAL , PWM , CTC , FAST_PWM,
+	TIMER0_NORMAL , TIMER0_PWM , TIMER0_CTC , TIMER0_FAST_PWM,
 }waveFormMode_t;
 
 #ifndef PWM_ACTIVE
@@ -43,7 +43,7 @@ typedef enum
 #else
 typedef enum
 {
-	OC0_DISCONNECTED , RESERVED , OC0_CLEAR , OC0_SET
+	OC0_DISCONNECTED , TIMER0_RESERVED , OC0_CLEAR , OC0_SET
 }compareOutputMode_t;
 #endif
 

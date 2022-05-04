@@ -27,6 +27,10 @@ typedef unsigned char bool;
 #define HIGH        (1u)
 #define LOW         (0u)
 
+
+#define ENABLE      (1u)
+#define DISABLE     (0u)
+
 #define NULL_PTR    ((void*)0)
 
 typedef unsigned char         uint8;          /*           0 .. 255             */
