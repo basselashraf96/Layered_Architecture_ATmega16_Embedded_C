@@ -99,26 +99,42 @@ void UART_init(Uart_Config_t* Config)
 
 #endif
 
-UBRRL = UART_BAUD_RATE_PRESCALE;
-UBRRH = ((UART_BAUD_RATE_PRESCALE & 0xF0)>>8);
+	UBRRL = UART_BAUD_RATE_PRESCALE;
+	UBRRH = ((UART_BAUD_RATE_PRESCALE & 0xF0)>>8);
 }
 
 void UART_sendByte(const uint8 data)
 {
-
+	while(BIT_IS_CLEAR(UCSRA , UDRE));
+	UDR = data;
 }
 
 uint8 UART_recieveByte(void)
 {
-
+	while(BIT_IS_CLEAR(UCSRA,RXC)){}
+	return UDR;
 }
 
 void UART_sendString(const uint8 *Str)
 {
+	uint8 counter = 0;
+	while(Str[counter] != '\0')
+	{
+		UART_sendByte(Str[counter]);
+		counter++;
+	}
 
 }
 
 void UART_receiveString(uint8 *Str) // Receive until #
 {
+	uint8 counter = 0;
+	Str[counter] = UART_recieveByte();
+	while(Str[counter] != '#')
+	{
+		counter++;
+		Str[counter] = UART_recieveByte();
 
+	}
+	Str[counter] = '\0';
 }

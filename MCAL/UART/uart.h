@@ -23,7 +23,7 @@
 
 #define UART_DOUBLE_SPEED_ENABLE ENABLE /* Select between ENABLE and DISABLE */
 
-#define UART_INTERRUPT_ENABLE    ENABLE /* Select between ENABLE and DISABLE */
+#define UART_INTERRUPT_ENABLE    DISABLE /* Select between ENABLE and DISABLE */
 
 #define UART_RX_ENABLE           ENABLE /* Select between ENABLE and DISABLE */
 #define UART_TX_ENABLE           ENABLE /* Select between ENABLE and DISABLE */

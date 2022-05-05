@@ -13,6 +13,9 @@
 /********************************************************
  * 			   Registers Addresses
  ********************************************************/
+
+#define UDR (*(volatile uint8*)0x2C)
+
 /*Control and Status Register A */
 #define UCSRA (*(volatile uint8*)0x2B)
 

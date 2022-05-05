@@ -14,6 +14,7 @@ RM := rm -rf
 -include MCAL/ADC/subdir.mk
 -include HAL/LCD/subdir.mk
 -include HAL/KEYPAD/subdir.mk
+-include APP/Transmitter_UART_APP_TEST/subdir.mk
 -include APP/POTENTIOMETER/subdir.mk
 -include APP/LED_BLINKING_USING_TIMER0/subdir.mk
 -include APP/LED_BLINK/subdir.mk
