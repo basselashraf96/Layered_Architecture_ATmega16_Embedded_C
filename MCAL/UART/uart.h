@@ -23,12 +23,13 @@
 
 #define UART_DOUBLE_SPEED_ENABLE ENABLE /* Select between ENABLE and DISABLE */
 
-#define UART_INTERRUPT_ENABLE    DISABLE /* Select between ENABLE and DISABLE */
+#define UART_INTERRUPT_ENABLE    ENABLE /* Select between ENABLE and DISABLE */
 
 #define UART_RX_ENABLE           ENABLE /* Select between ENABLE and DISABLE */
 #define UART_TX_ENABLE           ENABLE /* Select between ENABLE and DISABLE */
 
 #if(UART_MODE_SELECT == SYNCHRONOUS)
+
 #define UART_CLK_TX_RISING_RX_FALLING_EDGE 0
 #define UART_CLK_TX_FALLING_RX_RISING_EDGE 1
 
@@ -36,6 +37,11 @@
 
 #endif
 
+#if(UART_INTERRUPT_ENABLE == ENABLE)
+
+#define UART_Buffer_Size 128 /* ADD Buffer Size */
+
+#endif
 /************************************
  * 			Types Declaration
  *************************************/
@@ -71,6 +77,14 @@ typedef struct
  *************************************/
 void UART_init(Uart_Config_t* Config);
 
+#if(UART_INTERRUPT_ENABLE == ENABLE)
+
+void UART_TX_AppendSerial(uint8 character);
+void UART_SerialWrite(uint8 *Str);
+
+void UART_SerialRead(uint8 *Str);
+
+#else
 void UART_sendByte(const uint8 data);
 
 uint8 UART_recieveByte(void);
@@ -78,5 +92,8 @@ uint8 UART_recieveByte(void);
 void UART_sendString(const uint8 *Str);
 
 void UART_receiveString(uint8 *Str); // Receive until #
+
+#endif
+
 
 #endif /* MCAL_UART_UART_H_ */

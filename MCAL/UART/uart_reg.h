@@ -13,6 +13,7 @@
 /********************************************************
  * 			   Registers Addresses
  ********************************************************/
+#define SREG  (*(volatile uint8*)0x5F) /*Status Register (i-bit --> bit 7*/
 
 #define UDR (*(volatile uint8*)0x2C)
 
