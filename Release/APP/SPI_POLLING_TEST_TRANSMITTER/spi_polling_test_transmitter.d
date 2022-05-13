@@ -1,0 +1,21 @@
+APP/SPI_POLLING_TEST_TRANSMITTER/spi_polling_test_transmitter.o \
+  APP/SPI_POLLING_TEST_TRANSMITTER/spi_polling_test_transmitter.o:  \
+ ../APP/SPI_POLLING_TEST_TRANSMITTER/spi_polling_test_transmitter.c \
+  ../APP/SPI_POLLING_TEST_TRANSMITTER/../../MCAL/SPI/spi.h \
+  ../APP/SPI_POLLING_TEST_TRANSMITTER/../../MCAL/SPI/spi_reg.h \
+  ../APP/SPI_POLLING_TEST_TRANSMITTER/../../MCAL/SPI/../../UTILS/std_types.h \
+  ../APP/SPI_POLLING_TEST_TRANSMITTER/../../MCAL/SPI/../../UTILS/common_macros.h \
+  ../APP/SPI_POLLING_TEST_TRANSMITTER/../../MCAL/SPI/../DIO/DIO.h \
+  ../APP/SPI_POLLING_TEST_TRANSMITTER/../../MCAL/SPI/../DIO/../../UTILS/std_types.h
+
+../APP/SPI_POLLING_TEST_TRANSMITTER/../../MCAL/SPI/spi.h:
+
+../APP/SPI_POLLING_TEST_TRANSMITTER/../../MCAL/SPI/spi_reg.h:
+
+../APP/SPI_POLLING_TEST_TRANSMITTER/../../MCAL/SPI/../../UTILS/std_types.h:
+
+../APP/SPI_POLLING_TEST_TRANSMITTER/../../MCAL/SPI/../../UTILS/common_macros.h:
+
+../APP/SPI_POLLING_TEST_TRANSMITTER/../../MCAL/SPI/../DIO/DIO.h:
+
+../APP/SPI_POLLING_TEST_TRANSMITTER/../../MCAL/SPI/../DIO/../../UTILS/std_types.h:

@@ -13,11 +13,12 @@
 //extern void potentiometer_app(void);
 //extern int lcd_test_app(void);
 //extern int keypad_lcd_app_test(void);
-extern int uart_app_test(void);
+//extern int uart_app_test(void);
+extern int spi_polling_transmitter_test(void);
 int main(void)
 {
 
-	uart_app_test();
+	spi_polling_transmitter_test();
 
 	return 0;
 }

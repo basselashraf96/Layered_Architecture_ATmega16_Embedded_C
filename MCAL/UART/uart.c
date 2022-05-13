@@ -108,6 +108,9 @@ ISR(USART_TXC_vect)
 #endif
 /*********************************************************/
 
+/*********************************************************
+ * 			FUNCTION DEFINITION
+ *********************************************************/
 void UART_init(Uart_Config_t* Config)
 {
 	CLEAR_BIT(UCSRA , FE); /* see page 157 ATmega16 DATASHEET*/
@@ -264,3 +267,4 @@ void UART_receiveString(uint8 *Str) /* Receive until '#' character */
 	Str[counter] = '\0';
 }
 #endif
+/*********************************************************/

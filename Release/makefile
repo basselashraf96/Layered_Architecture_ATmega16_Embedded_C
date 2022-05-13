@@ -10,11 +10,13 @@ RM := rm -rf
 -include sources.mk
 -include MCAL/UART/subdir.mk
 -include MCAL/TIMER_0/subdir.mk
+-include MCAL/SPI/subdir.mk
 -include MCAL/DIO/subdir.mk
 -include MCAL/ADC/subdir.mk
 -include HAL/LCD/subdir.mk
 -include HAL/KEYPAD/subdir.mk
 -include APP/Transmitter_UART_APP_TEST/subdir.mk
+-include APP/SPI_POLLING_TEST_TRANSMITTER/subdir.mk
 -include APP/POTENTIOMETER/subdir.mk
 -include APP/LED_BLINKING_USING_TIMER0/subdir.mk
 -include APP/LED_BLINK/subdir.mk
