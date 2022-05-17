@@ -5,9 +5,9 @@
  *      Author: Basel Ashraf
  */
 
-#define F_CPU 1000000UL
+
 #include "../../MCAL/DIO/DIO.h"
-#include "util/delay.h"
+#include "../../UTILS/mcu_config.h"
 
 int dio_app(void)
 {

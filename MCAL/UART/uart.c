@@ -7,9 +7,7 @@
 
 
 #include "uart.h"
-#include "../../UTILS/common_macros.h"
-#include <string.h>
-#include <util/delay.h>
+
 /*********************************************************
  * 				Global Variables & flags
  *********************************************************/

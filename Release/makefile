@@ -11,6 +11,7 @@ RM := rm -rf
 -include MCAL/UART/subdir.mk
 -include MCAL/TIMER_0/subdir.mk
 -include MCAL/SPI/subdir.mk
+-include MCAL/I2C/subdir.mk
 -include MCAL/DIO/subdir.mk
 -include MCAL/ADC/subdir.mk
 -include HAL/LCD/subdir.mk

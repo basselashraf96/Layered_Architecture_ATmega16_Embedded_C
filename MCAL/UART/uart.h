@@ -9,12 +9,12 @@
 #define MCAL_UART_UART_H_
 
 #include "uart_reg.h"
-#include <avr/interrupt.h>
-
+#include "../../UTILS/mcu_config.h"
+#include "../../UTILS/common_macros.h"
+#include <string.h>
 /************************************
  * 			CONFIGURATIONS
  *************************************/
-#define F_CPU 1000000UL
 #define UART_BAUD_RATE 9600
 
 #define ASYNCHRONOUS 0

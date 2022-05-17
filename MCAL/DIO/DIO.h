@@ -8,8 +8,8 @@
 #ifndef MCAL_DIO_DIO_H_
 #define MCAL_DIO_DIO_H_
 
-#include "../../UTILS/std_types.h"
-
+#include "DIO_REG.h"
+#include "../../UTILS/common_macros.h"
 
 /*************************************************************************************
   	  	  	  	  *			Types Declaration			*

@@ -10,9 +10,6 @@
  * 			Register Description Page(211)
  ************************************************************/
 #include "adc.h"
-#include "adc_reg.h"
-#include "../../UTILS/common_macros.h"
-#include <avr/interrupt.h>
 
 /************************************************************
  * 					Global Variables

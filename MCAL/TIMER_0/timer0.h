@@ -9,8 +9,10 @@
 #define MCAL_TIMER_0_TIMER0_H_
 
 #include "../../UTILS/std_types.h"
-#include <avr/interrupt.h>
-
+#include "../../UTILS/common_macros.h"
+#include "../../UTILS/mcu_config.h"
+#include "timer0_reg.h"
+#include "../DIO/DIO.h"
 
 
 /*************************************************************************************

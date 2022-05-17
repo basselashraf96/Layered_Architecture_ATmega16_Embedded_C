@@ -9,6 +9,8 @@
 #define HAL_KEYPAD_KEYPAD_H_
 
 #include "../../MCAL/DIO/DIO_REG.h"
+#include "../../UTILS/std_types.h"
+#include "../../UTILS/common_macros.h"
 
 /*******************************************************************************
  *                      Preprocessor Macros                                    *

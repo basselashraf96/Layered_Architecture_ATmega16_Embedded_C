@@ -6,8 +6,6 @@
  */
 
 #include "keypad.h"
-#include "../../UTILS/std_types.h"
-#include "../../UTILS/common_macros.h"
 
 #if(KEYPAD_COL == 4)
 static uint8 keypad_4x4(uint8 buttonNumber);

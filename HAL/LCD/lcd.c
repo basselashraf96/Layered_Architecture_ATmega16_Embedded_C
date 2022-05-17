@@ -7,7 +7,6 @@
 
 
 #include "lcd.h"
-#include <util/delay.h>
 
 /* waiting values from LCD data sheet (LMB162ABC) */
 

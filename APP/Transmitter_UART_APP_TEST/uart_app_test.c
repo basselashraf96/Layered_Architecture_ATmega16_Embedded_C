@@ -7,7 +7,7 @@
 
 
 #include "../../MCAL/UART/uart.h"
-#include <util/delay.h>
+#include "../../UTILS/mcu_config.h"
 
 #define MC1_READY 0x16
 #define MC2_READY 0x15

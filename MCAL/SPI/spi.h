@@ -11,7 +11,7 @@
 #include "spi_reg.h"
 #include "../../UTILS/common_macros.h"
 #include "../DIO/DIO.h"
-#include <avr/interrupt.h>
+#include "../../UTILS/mcu_config.h"
 /************************************
  * 			CONFIGURATIONS
  *************************************/

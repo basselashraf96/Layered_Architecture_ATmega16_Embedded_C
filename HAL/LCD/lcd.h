@@ -11,6 +11,7 @@
 #include "../../MCAL/DIO/DIO.h"
 #include "../../MCAL/DIO/DIO_REG.h"
 #include "../../UTILS/std_types.h"
+#include "../../UTILS/mcu_config.h"
 
 /***************************************************
  * 			     MACROS					   *

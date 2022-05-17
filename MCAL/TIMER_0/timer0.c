@@ -6,9 +6,6 @@
  */
 
 #include "timer0.h"
-#include "timer0_reg.h"
-#include "../../UTILS/common_macros.h"
-#include "../DIO/DIO.h"
 
 /**************************************************
  * 				Global Variables                  *

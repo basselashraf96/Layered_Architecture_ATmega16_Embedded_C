@@ -12,8 +12,9 @@
  * 			Register addresses ATmega16 data sheet Page(298)
  * 			Register Description Page(211)
  ************************************************************/
-
-#include "../../UTILS/std_types.h"
+#include "adc_reg.h"
+#include "../../UTILS/common_macros.h"
+#include "../../UTILS/mcu_config.h"
 
 /*******************************************************
  * 					Macros

@@ -5,9 +5,6 @@
  *      Author: Basel Ashraf
  */
 #include "DIO.h"
-#include "DIO_REG.h"
-#include "../../UTILS/std_types.h"
-#include "../../UTILS/common_macros.h"
 
 #define PORT_SIZE 8
 
