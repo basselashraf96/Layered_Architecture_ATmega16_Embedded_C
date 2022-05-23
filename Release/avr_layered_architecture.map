@@ -43,6 +43,7 @@ LOAD ./MCAL/DIO/DIO.o
 LOAD ./MCAL/ADC/adc.o
 LOAD ./HAL/LCD/lcd.o
 LOAD ./HAL/KEYPAD/keypad.o
+LOAD ./APP/i2c_app_test/i2c_app.o
 LOAD ./APP/Transmitter_UART_APP_TEST/uart_app_test.o
 LOAD ./APP/SPI_POLLING_TEST_TRANSMITTER/spi_polling_test_transmitter.o
 LOAD ./APP/POTENTIOMETER/potentiometer.o
@@ -146,7 +147,7 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0xd9e
+.text           0x00000000      0xe16
  *(.vectors)
  .vectors       0x00000000       0x54 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm16.o
                 0x00000000                __vectors
@@ -227,6 +228,7 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  .text          0x00000092        0x0 ./MCAL/ADC/adc.o
  .text          0x00000092        0x0 ./HAL/LCD/lcd.o
  .text          0x00000092        0x0 ./HAL/KEYPAD/keypad.o
+ .text          0x00000092        0x0 ./APP/i2c_app_test/i2c_app.o
  .text          0x00000092        0x0 ./APP/Transmitter_UART_APP_TEST/uart_app_test.o
  .text          0x00000092        0x0 ./APP/SPI_POLLING_TEST_TRANSMITTER/spi_polling_test_transmitter.o
  .text          0x00000092        0x0 ./APP/POTENTIOMETER/potentiometer.o
@@ -300,121 +302,127 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                 0x00000414       0x56 ./MCAL/SPI/spi.o
                 0x00000414                SPI_initMaster
  .text.TWI_init
-                0x0000046a       0x10 ./MCAL/I2C/i2c.o
+                0x0000046a        0xe ./MCAL/I2C/i2c.o
                 0x0000046a                TWI_init
  .text.TWI_start
-                0x0000047a        0xc ./MCAL/I2C/i2c.o
-                0x0000047a                TWI_start
+                0x00000478        0xc ./MCAL/I2C/i2c.o
+                0x00000478                TWI_start
  .text.TWI_stop
-                0x00000486        0x6 ./MCAL/I2C/i2c.o
-                0x00000486                TWI_stop
+                0x00000484        0x6 ./MCAL/I2C/i2c.o
+                0x00000484                TWI_stop
  .text.TWI_write
-                0x0000048c        0xe ./MCAL/I2C/i2c.o
-                0x0000048c                TWI_write
+                0x0000048a        0xe ./MCAL/I2C/i2c.o
+                0x0000048a                TWI_write
  .text.TWI_readWithACK
-                0x0000049a        0xe ./MCAL/I2C/i2c.o
-                0x0000049a                TWI_readWithACK
+                0x00000498        0xe ./MCAL/I2C/i2c.o
+                0x00000498                TWI_readWithACK
  .text.TWI_readWithNACK
-                0x000004a8        0xe ./MCAL/I2C/i2c.o
-                0x000004a8                TWI_readWithNACK
+                0x000004a6        0xe ./MCAL/I2C/i2c.o
+                0x000004a6                TWI_readWithNACK
+ .text.TWI_sendByte
+                0x000004b4       0x48 ./MCAL/I2C/i2c.o
+                0x000004b4                TWI_sendByte
  .text.TWI_getStatus
-                0x000004b6        0x6 ./MCAL/I2C/i2c.o
-                0x000004b6                TWI_getStatus
+                0x000004fc        0x6 ./MCAL/I2C/i2c.o
+                0x000004fc                TWI_getStatus
  .text.set_pin_dir
-                0x000004bc      0x184 ./MCAL/DIO/DIO.o
-                0x000004bc                set_pin_dir
+                0x00000502      0x184 ./MCAL/DIO/DIO.o
+                0x00000502                set_pin_dir
  .text.set_pin_state
-                0x00000640       0xfc ./MCAL/DIO/DIO.o
-                0x00000640                set_pin_state
+                0x00000686       0xfc ./MCAL/DIO/DIO.o
+                0x00000686                set_pin_state
  .text.read_pin
-                0x0000073c       0x4c ./MCAL/DIO/DIO.o
-                0x0000073c                read_pin
+                0x00000782       0x4c ./MCAL/DIO/DIO.o
+                0x00000782                read_pin
  .text.set_port_dir
-                0x00000788       0x22 ./MCAL/DIO/DIO.o
-                0x00000788                set_port_dir
+                0x000007ce       0x22 ./MCAL/DIO/DIO.o
+                0x000007ce                set_port_dir
  .text.set_port_state
-                0x000007aa       0x22 ./MCAL/DIO/DIO.o
-                0x000007aa                set_port_state
+                0x000007f0       0x22 ./MCAL/DIO/DIO.o
+                0x000007f0                set_port_state
  .text.adc_init
-                0x000007cc       0x34 ./MCAL/ADC/adc.o
-                0x000007cc                adc_init
+                0x00000812       0x34 ./MCAL/ADC/adc.o
+                0x00000812                adc_init
  .text.adc_readChannel
-                0x00000800       0x1e ./MCAL/ADC/adc.o
-                0x00000800                adc_readChannel
+                0x00000846       0x1e ./MCAL/ADC/adc.o
+                0x00000846                adc_readChannel
  .text.LCD_displayCharacter
-                0x0000081e       0x88 ./HAL/LCD/lcd.o
-                0x0000081e                LCD_displayCharacter
+                0x00000864       0x88 ./HAL/LCD/lcd.o
+                0x00000864                LCD_displayCharacter
  .text.LCD_displayString
-                0x000008a6       0x26 ./HAL/LCD/lcd.o
-                0x000008a6                LCD_displayString
+                0x000008ec       0x26 ./HAL/LCD/lcd.o
+                0x000008ec                LCD_displayString
  .text.LCD_intgerToString
-                0x000008cc       0x44 ./HAL/LCD/lcd.o
-                0x000008cc                LCD_intgerToString
+                0x00000912       0x44 ./HAL/LCD/lcd.o
+                0x00000912                LCD_intgerToString
  .text.LCD_sendCommand
-                0x00000910       0x88 ./HAL/LCD/lcd.o
-                0x00000910                LCD_sendCommand
+                0x00000956       0x88 ./HAL/LCD/lcd.o
+                0x00000956                LCD_sendCommand
  .text.LCD_goToRowColumn
-                0x00000998       0x28 ./HAL/LCD/lcd.o
-                0x00000998                LCD_goToRowColumn
+                0x000009de       0x28 ./HAL/LCD/lcd.o
+                0x000009de                LCD_goToRowColumn
  .text.LCD_displayStringRowColumn
-                0x000009c0       0x16 ./HAL/LCD/lcd.o
-                0x000009c0                LCD_displayStringRowColumn
+                0x00000a06       0x16 ./HAL/LCD/lcd.o
+                0x00000a06                LCD_displayStringRowColumn
  .text.LCD_clearScreen
-                0x000009d6        0x8 ./HAL/LCD/lcd.o
-                0x000009d6                LCD_clearScreen
+                0x00000a1c        0x8 ./HAL/LCD/lcd.o
+                0x00000a1c                LCD_clearScreen
  .text.LCD_init
-                0x000009de       0x38 ./HAL/LCD/lcd.o
-                0x000009de                LCD_init
+                0x00000a24       0x38 ./HAL/LCD/lcd.o
+                0x00000a24                LCD_init
  .text.KeyPad_getPressedKey
-                0x00000a16       0xe6 ./HAL/KEYPAD/keypad.o
-                0x00000a16                KeyPad_getPressedKey
+                0x00000a5c       0xe6 ./HAL/KEYPAD/keypad.o
+                0x00000a5c                KeyPad_getPressedKey
+ .text.i2c_app_test
+                0x00000b42       0x32 ./APP/i2c_app_test/i2c_app.o
+                0x00000b42                i2c_app_test
  .text.uart_app_test
-                0x00000afc       0x38 ./APP/Transmitter_UART_APP_TEST/uart_app_test.o
-                0x00000afc                uart_app_test
+                0x00000b74       0x38 ./APP/Transmitter_UART_APP_TEST/uart_app_test.o
+                0x00000b74                uart_app_test
  .text.spi_polling_transmitter_test
-                0x00000b34       0x20 ./APP/SPI_POLLING_TEST_TRANSMITTER/spi_polling_test_transmitter.o
-                0x00000b34                spi_polling_transmitter_test
+                0x00000bac       0x20 ./APP/SPI_POLLING_TEST_TRANSMITTER/spi_polling_test_transmitter.o
+                0x00000bac                spi_polling_transmitter_test
  .text.potentiometer_app
-                0x00000b54       0x4a ./APP/POTENTIOMETER/potentiometer.o
-                0x00000b54                potentiometer_app
+                0x00000bcc       0x4a ./APP/POTENTIOMETER/potentiometer.o
+                0x00000bcc                potentiometer_app
  .text.blinking_app
-                0x00000b9e       0x2c ./APP/LED_BLINKING_USING_TIMER0/time0_app_test.o
-                0x00000b9e                blinking_app
+                0x00000c16       0x2c ./APP/LED_BLINKING_USING_TIMER0/time0_app_test.o
+                0x00000c16                blinking_app
  .text.timer0_app
-                0x00000bca       0x52 ./APP/LED_BLINKING_USING_TIMER0/time0_app_test.o
-                0x00000bca                timer0_app
- .text.dio_app  0x00000c1c       0x46 ./APP/LED_BLINK/dio_test.o
-                0x00000c1c                dio_app
+                0x00000c42       0x52 ./APP/LED_BLINKING_USING_TIMER0/time0_app_test.o
+                0x00000c42                timer0_app
+ .text.dio_app  0x00000c94       0x46 ./APP/LED_BLINK/dio_test.o
+                0x00000c94                dio_app
  .text.lcd_test_app
-                0x00000c62       0x12 ./APP/LCD_TEST/lcd_test_app.o
-                0x00000c62                lcd_test_app
+                0x00000cda       0x12 ./APP/LCD_TEST/lcd_test_app.o
+                0x00000cda                lcd_test_app
  .text.keypad_lcd_app_test
-                0x00000c74       0x30 ./APP/KEYPAD_LCD_APP/keypad_LCD_app.o
-                0x00000c74                keypad_lcd_app_test
+                0x00000cec       0x30 ./APP/KEYPAD_LCD_APP/keypad_LCD_app.o
+                0x00000cec                keypad_lcd_app_test
  .text.control_led
-                0x00000ca4       0x50 ./APP/BUTTON_LED_CONTROL/button_led_control.o
-                0x00000ca4                control_led
- .text.main     0x00000cf4        0xa ./main.o
-                0x00000cf4                main
- .text.libgcc   0x00000cfe        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x00000cfe        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .text.libgcc   0x00000cfe        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                0x00000d1c       0x50 ./APP/BUTTON_LED_CONTROL/button_led_control.o
+                0x00000d1c                control_led
+ .text.main     0x00000d6c        0xa ./main.o
+                0x00000d6c                main
+ .text.libgcc   0x00000d76        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00000d76        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000d76        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
  .text.avr-libc
-                0x00000cfe       0x12 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strcmp.o)
-                0x00000cfe                strcmp
+                0x00000d76       0x12 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strcmp.o)
+                0x00000d76                strcmp
  .text.avr-libc
-                0x00000d10       0x42 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(itoa.o)
-                0x00000d10                itoa
+                0x00000d88       0x42 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(itoa.o)
+                0x00000d88                itoa
  .text.avr-libc
-                0x00000d52       0x20 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strrev.o)
-                0x00000d52                strrev
- .text.libgcc   0x00000d72       0x28 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
-                0x00000d72                __udivmodhi4
-                0x00000d9a                . = ALIGN (0x2)
+                0x00000dca       0x20 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strrev.o)
+                0x00000dca                strrev
+ .text.libgcc   0x00000dea       0x28 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
+                0x00000dea                __udivmodhi4
+                0x00000e12                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000d9a        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x00000d9a                exit
-                0x00000d9a                _exit
+ .fini9         0x00000e12        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x00000e12                exit
+                0x00000e12                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -433,11 +441,11 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000d9a        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x00000e12        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000d9e                _etext = .
+                0x00000e16                _etext = .
 
-.data           0x00800060       0x1e load address 0x00000d9e
+.data           0x00800060       0x1e load address 0x00000e16
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm16.o
@@ -449,6 +457,7 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  .data          0x00800060        0x0 ./MCAL/ADC/adc.o
  .data          0x00800060        0x0 ./HAL/LCD/lcd.o
  .data          0x00800060        0x0 ./HAL/KEYPAD/keypad.o
+ .data          0x00800060        0x0 ./APP/i2c_app_test/i2c_app.o
  .data          0x00800060        0xe ./APP/Transmitter_UART_APP_TEST/uart_app_test.o
  .data          0x0080006e        0x0 ./APP/SPI_POLLING_TEST_TRANSMITTER/spi_polling_test_transmitter.o
  .data          0x0080006e        0x0 ./APP/POTENTIOMETER/potentiometer.o
@@ -492,6 +501,7 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  .bss           0x0080007e        0x0 ./MCAL/ADC/adc.o
  .bss           0x0080007e        0x0 ./HAL/LCD/lcd.o
  .bss           0x0080007e        0x0 ./HAL/KEYPAD/keypad.o
+ .bss           0x0080007e        0x0 ./APP/i2c_app_test/i2c_app.o
  .bss           0x0080007e        0x0 ./APP/Transmitter_UART_APP_TEST/uart_app_test.o
  .bss           0x0080007e        0x0 ./APP/SPI_POLLING_TEST_TRANSMITTER/spi_polling_test_transmitter.o
  .bss           0x0080007e        0x0 ./APP/POTENTIOMETER/potentiometer.o
@@ -534,8 +544,8 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                 0x0080008a                UART_RX_Buffer
                 0x0080010a                UART_TX_Buffer
                 0x0080018a                PROVIDE (__bss_end, .)
-                0x00000d9e                __data_load_start = LOADADDR (.data)
-                0x00000dbc                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00000e16                __data_load_start = LOADADDR (.data)
+                0x00000e34                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x0080018a        0x0
                 0x0080018a                PROVIDE (__noinit_start, .)

@@ -16,6 +16,7 @@ RM := rm -rf
 -include MCAL/ADC/subdir.mk
 -include HAL/LCD/subdir.mk
 -include HAL/KEYPAD/subdir.mk
+-include APP/i2c_app_test/subdir.mk
 -include APP/Transmitter_UART_APP_TEST/subdir.mk
 -include APP/SPI_POLLING_TEST_TRANSMITTER/subdir.mk
 -include APP/POTENTIOMETER/subdir.mk

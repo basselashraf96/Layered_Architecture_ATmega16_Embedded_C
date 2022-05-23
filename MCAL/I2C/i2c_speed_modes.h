@@ -8,8 +8,7 @@
 #ifndef MCAL_I2C_I2C_SPEED_MODES_H_
 #define MCAL_I2C_I2C_SPEED_MODES_H_
 
-#include "../../UTILS/mcu_config.h"
-#include "../../UTILS/std_types.h"
+#include "i2c.h"
 
 /* Uncomment and edit for desired MCU clock Frequency */
 
@@ -17,12 +16,13 @@
 
 /******** Uncomment to select speed mode(only 1 can be active) ********/
 
-#define I2C_SCL 50 /* i2c speed mode is 50 kbps */
+#if(I2C_SCL == 50) /* i2c speed mode is 50 kbps */
 
-//#define I2C_SCL 100 /* i2c speed mode is 100 kbps */
+#elif(I2C_SCL == 100) /* i2c speed mode is 100 kbps */
 
-//#define I2C_SCL 400 /* i2c speed mode is 400 kbps */
+#elif(I2C_SCL == 400) /* i2c speed mode is 400 kbps */
 
+#endif
 /**********************************************************************/
 #if(F_CPU == 1000000UL && I2C_SCL == 50)
 

@@ -14,11 +14,12 @@
 //extern int lcd_test_app(void);
 //extern int keypad_lcd_app_test(void);
 //extern int uart_app_test(void);
-extern int spi_polling_transmitter_test(void);
+//extern int spi_polling_transmitter_test(void);
+extern int i2c_app_test(void);
 int main(void)
 {
 
-	spi_polling_transmitter_test();
+	i2c_app_test();
 
 	return 0;
 }
