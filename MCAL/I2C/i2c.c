@@ -21,7 +21,7 @@ void TWI_init(void)
 
 #elif(TWI_OPERATING_MODE == TWI_SLAVE_MODE)
 
-	/* my address = 0x01 */
+	/* my address = 0x06 */
 	TWAR = TWI_OWN_ADDRESS;
 	CLEAR_BIT(TWAR , 0); /* TWI General Call Recognition Enable Bit (off)  */
 

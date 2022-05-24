@@ -10,12 +10,6 @@
 
 #include "i2c.h"
 
-/* Uncomment and edit for desired MCU clock Frequency */
-
-//#define F_CPU 8000000
-
-/******** Uncomment to select speed mode(only 1 can be active) ********/
-
 #if(I2C_SCL == 50) /* i2c speed mode is 50 kbps */
 
 #elif(I2C_SCL == 100) /* i2c speed mode is 100 kbps */
